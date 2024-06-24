@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<style>
+
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.selectmenu{
+    width:400px;
+    margin:150px auto;
+}
+body{
+    background-color: aqua;
+}
+.selectbtn{
+    display: flex;
+    background-color: silver;
+    height: 55px;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 8px;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+    box-shadow: 0 0 5px rgb(248, 244, 244);
+}
+.selectbtn i{
+    font-size: 25px;
+    margin-right: 25px;
+    transition: 0.3s;
+   
+}
+.selectmenu.active .on{
+    transform: rotate(-180deg);
+}
+.selectmenu .options{
+    position: relative;
+    padding: 20px;
+    margin-top:10px;
+    border-radius: 5px;
+    background-color: azure;
+    display: none ;
+    
+}
+.selectmenu.active .options{
+    display: block;
+
+}
+
+.option{
+    display:flex;
+    height: 55px;
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 8px;
+    align-items: center;
+    background-color: azure;
+
+}
+.option:hover{
+    background-color: rgb(247, 204, 204);
+}
+.span1{
+    font-size: 18px;
+    color:black;
+    margin-left: 20px;
+}
+
+</style>
+
+</head>
+<body>
+    <div class="selectmenu">
+        <div class="selectbtn">
+            <span class="sbtn">Select</span>
+            <ion-icon name="caret-down-outline" class="on"></ion-icon>
+        </div>
+
+        <ul class="options" type="none">
+            <li class="option">
+                <ion-icon name="logo-linkedin"></ion-icon>
+                <span class="span1">linkedin</span>
+            </li>
+            <li class="option">
+                <ion-icon name="logo-facebook"></ion-icon>
+
+                <span class="span1">Facebook</span>
+            </li>
+            <li class="option">
+                <ion-icon name="logo-amazon"></ion-icon>
+
+                <span class="span1">Amazon</span>
+            </li>
+            <li class="option">
+                <ion-icon name="logo-twitter"></ion-icon>
+
+                <span class="span1">Twitter</span>
+            </li>
+            <li class="option">
+                <ion-icon name="logo-apple"></ion-icon>
+
+                <span class="span1">Apple</span>
+            </li>
+
+
+        </ul>
+    </div>
+
+
+    <script>
+        const optionMenu=document.querySelector(".selectmenu");
+        const selectBtn=document.querySelector(".selectbtn");
+        const options=document.querySelectorAll(".option");
+     const sbtn1=document.querySelector(".sbtn");
+
+
+selectBtn.addEventListener("click", () => optionMenu.classList.toggle("active"));
+
+options.forEach(option => {
+    option.addEventListener("click",() =>{
+        let selectOption=option.querySelector(".span1").innerText;
+
+        sbtn1.innerText=selectOption;
+       optionMenu.classList.remove("active");
+
+    })
+})
+
+    </script>
+</body>
+</html>
